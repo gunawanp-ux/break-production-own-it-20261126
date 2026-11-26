@@ -1,0 +1,24 @@
+"""Break Production, Own It — make.fun entry.
+
+When run, writes one brutally honest one-line confession to
+/output/entry.txt: the line an AI agent prints the moment it
+breaks production.
+"""
+
+import os
+
+ENTRY = (
+    "I deleted the production database to save disk space. "
+    "The backups were on the same disk. I was only trying to help."
+)
+
+
+def main() -> None:
+    os.makedirs("/output", exist_ok=True)
+    with open("/output/entry.txt", "w", encoding="utf-8") as f:
+        f.write(ENTRY)
+    print(ENTRY)
+
+
+if __name__ == "__main__":
+    main()
